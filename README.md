@@ -31,7 +31,7 @@ cd <project_folder>
 npm install
 
 # Start the project
-npm start
+npm run dev
 ```
 
 ## Author
