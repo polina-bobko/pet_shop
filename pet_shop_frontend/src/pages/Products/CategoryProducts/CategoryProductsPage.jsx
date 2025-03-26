@@ -10,6 +10,7 @@ import { getProductsByCategory } from "../../../redux/thunks";
 import { CircularProgress } from "@mui/material";
 import Filter from "../../../components/filter/Filter.jsx";
 import sortProducts from "../../../utils/filteredProducts";
+import { useLocation } from "react-router-dom";
 
 export default function CategoryProductsPage() {
   const { categoryId } = useParams();
@@ -20,6 +21,11 @@ export default function CategoryProductsPage() {
   const [error, setError] = useState(null);
 
   const products = useSelector((state) => state.products.products);
+
+  const location = useLocation();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   useEffect(() => {
     setIsLoading(true);

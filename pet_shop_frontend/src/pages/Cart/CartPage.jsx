@@ -13,16 +13,15 @@ export default function CartPage() {
 
   const [form, setForm] = useState({ name: "", phone: "", email: "" });
 
+  const location = useLocation();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
   const totalPrice = cartItems.reduce((total, item) => 
     item.discont_price === null ? total + item.price * item.quantity : total + item.discont_price * item.quantity, 0
   );
-
-  const location = useLocation();
-  
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
 
   const handleChangeQuantity = (method, id) => {
     dispatch(changeQuantity({ method, value: 1, id }));

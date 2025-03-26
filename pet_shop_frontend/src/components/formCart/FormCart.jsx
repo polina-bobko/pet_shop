@@ -107,7 +107,7 @@ function FormCart({ orderData, form = {}, onInputChange }) {
           {...register("email", {
             required: "Email is required",
             pattern: {
-              value: /\S+@\S+\.\S+/,
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
               message: "Entered value does not match email format",
             },
           })}

@@ -33,12 +33,12 @@ export const getProductsByCategory = createAsyncThunk(
 // Получение всех продуктов
 export const getAllProducts = createAsyncThunk(
   'data/getAllProducts',
-  async ( _ , { getState }) => {
-  /* async ({ getState }) => { */
-    const existingProducts = getState().products.products;
+  async () => {
+  /* async ( _ ,{ getState }) => { */
+/*     const existingProducts = getState().products.products;
     if (existingProducts && existingProducts.length > 0) {
       return existingProducts; // Не загружаем заново, если товар уже в state
-    } 
+    }  */
     try {
       const response = await axios.get('http://localhost:3333/products/all');
       return response.data;
@@ -65,11 +65,12 @@ export const getAllProducts = createAsyncThunk(
 
 export const getProductById = createAsyncThunk(
   "products/getProductById",
-  async (productId, { getState }) => {
+  async (productId) => {
+/*     async (productId, { getState }) => {
     const existingProduct = getState().products.product;
     if (existingProduct && existingProduct.id === productId) {
       return existingProduct; // Не загружаем заново, если товар уже в state
-    } 
+    }  */
     try {
       const response = await axios.get(`http://localhost:3333/products/${productId}`);
       /* if (!response.ok) {
