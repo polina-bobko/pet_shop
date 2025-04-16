@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeQuantity, removeItem, updateQuantity } from '../../redux/slices/cartSlice';
@@ -14,7 +14,7 @@ export default function CartPage() {
   const [form, setForm] = useState({ name: "", phone: "", email: "" });
 
   const location = useLocation();
-  React.useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
 

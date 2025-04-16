@@ -23,7 +23,7 @@ export default function CategoryProductsPage() {
   const products = useSelector((state) => state.products.products);
 
   const location = useLocation();
-  React.useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
 
